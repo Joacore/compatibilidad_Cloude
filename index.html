@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>💕 Test de Compatibilidad</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --pink-bg: #ffd6e0;
@@ -15,7 +15,6 @@
     --red-soft: #ff4d6d;
     --text-dark: #5a1a2e;
     --text-mid: #8b3a52;
-    --white-soft: rgba(255,255,255,0.85);
     --card-bg: rgba(255,255,255,0.72);
   }
 
@@ -29,7 +28,7 @@
     position: relative;
   }
 
-  /* ---- FLOATING HEARTS BACKGROUND ---- */
+  /* FLOATING HEARTS */
   .hearts-bg {
     position: fixed;
     inset: 0;
@@ -37,110 +36,74 @@
     z-index: 0;
     overflow: hidden;
   }
-
   .heart-float {
     position: absolute;
     bottom: -60px;
-    font-size: 1.4rem;
     animation: floatUp linear infinite;
     opacity: 0.18;
     color: var(--red-heart);
   }
-
   @keyframes floatUp {
-    0%   { transform: translateY(0) rotate(0deg) scale(1);   opacity: 0.18; }
+    0%   { transform: translateY(0) rotate(0deg) scale(1);    opacity: 0.18; }
     50%  { transform: translateY(-45vh) rotate(20deg) scale(1.1); opacity: 0.22; }
-    100% { transform: translateY(-105vh) rotate(-10deg) scale(0.8); opacity: 0; }
+    100% { transform: translateY(-110vh) rotate(-10deg) scale(0.8); opacity: 0; }
   }
 
-  /* ---- MAIN LAYOUT ---- */
+  /* CONTAINER */
   .container {
     position: relative;
     z-index: 1;
-    max-width: 560px;
+    max-width: 620px;
     margin: 0 auto;
-    padding: 40px 20px 60px;
+    padding: 36px 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 28px;
+    gap: 26px;
   }
 
-  /* ---- TITLE ---- */
-  .title-block {
-    text-align: center;
-  }
-
+  /* TITLE */
+  .title-block { text-align: center; }
   .title-emoji {
     font-size: 2.4rem;
     display: block;
     margin-bottom: 6px;
     animation: pulse 2s ease-in-out infinite;
   }
-
   @keyframes pulse {
     0%,100% { transform: scale(1); }
-    50%      { transform: scale(1.12); }
+    50%      { transform: scale(1.13); }
   }
-
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     color: var(--text-dark);
-    line-height: 1.15;
   }
+  h1 em { color: var(--red-soft); font-style: italic; }
+  .subtitle { margin-top: 5px; font-size: 0.87rem; color: var(--text-mid); letter-spacing: 0.04em; }
 
-  h1 em {
-    color: var(--red-soft);
-    font-style: italic;
-  }
-
-  .subtitle {
-    margin-top: 6px;
-    font-size: 0.88rem;
-    color: var(--text-mid);
-    letter-spacing: 0.04em;
-  }
-
-  /* ---- CARD ---- */
+  /* INPUT CARD */
   .card {
     width: 100%;
     background: var(--card-bg);
     backdrop-filter: blur(12px);
     border-radius: 28px;
-    padding: 32px 28px;
+    padding: 28px 24px;
     box-shadow: 0 8px 40px rgba(232,0,61,0.12), 0 2px 8px rgba(0,0,0,0.06);
-    border: 1.5px solid rgba(255,255,255,0.6);
+    border: 1.5px solid rgba(255,255,255,0.65);
   }
-
-  /* ---- INPUTS ---- */
   .names-row {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     flex-wrap: wrap;
   }
-
-  .input-group {
-    flex: 1;
-    min-width: 110px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  label {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--text-mid);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
+  .input-group { flex: 1; min-width: 110px; display: flex; flex-direction: column; gap: 5px; }
+  label { font-size: 0.76rem; font-weight: 700; color: var(--text-mid); letter-spacing: 0.06em; text-transform: uppercase; }
   input[type="text"] {
     width: 100%;
-    padding: 12px 16px;
+    padding: 11px 16px;
     border-radius: 50px;
     border: 2px solid var(--pink-mid);
     background: var(--pink-light);
@@ -150,143 +113,220 @@
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-
   input[type="text"]:focus {
     border-color: var(--red-soft);
     box-shadow: 0 0 0 4px rgba(255,75,109,0.15);
   }
-
-  input[type="text"]::placeholder {
-    color: #d4919f;
-  }
-
-  .heart-sep {
-    font-size: 1.5rem;
-    color: var(--red-heart);
-    flex-shrink: 0;
-    padding-top: 24px;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  /* ---- BUTTON ---- */
+  input[type="text"]::placeholder { color: #d4919f; }
+  .heart-sep { font-size: 1.5rem; color: var(--red-heart); flex-shrink: 0; padding-top: 22px; animation: pulse 2s ease-in-out infinite; }
   .btn {
     width: 100%;
-    padding: 14px;
+    padding: 13px;
     border-radius: 50px;
     border: none;
     background: linear-gradient(135deg, var(--red-soft) 0%, var(--red-heart) 100%);
     color: #fff;
     font-family: 'Nunito', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     font-weight: 700;
     cursor: pointer;
     letter-spacing: 0.04em;
     transition: transform 0.15s, box-shadow 0.15s;
     box-shadow: 0 4px 18px rgba(232,0,61,0.35);
   }
-
   .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,0,61,0.4); }
   .btn:active { transform: translateY(0); }
 
-  /* ---- RESULTS ---- */
+  /* RESULTS */
   .results {
     width: 100%;
     display: none;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    gap: 20px;
     animation: fadeSlide 0.5s ease both;
   }
-
   @keyframes fadeSlide {
-    from { opacity: 0; transform: translateY(18px); }
+    from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   .results.visible { display: flex; }
 
   .result-title {
-    text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-dark);
     font-style: italic;
+    text-align: center;
   }
 
-  /* ---- BAR ITEMS ---- */
-  .bar-item {
-    background: rgba(255,255,255,0.55);
-    border-radius: 18px;
-    padding: 14px 18px;
-    border: 1px solid rgba(255,180,198,0.5);
+  /* THERMOMETERS ROW */
+  .thermo-card {
+    width: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 28px 16px 24px;
+    box-shadow: 0 8px 40px rgba(232,0,61,0.10), 0 2px 8px rgba(0,0,0,0.05);
+    border: 1.5px solid rgba(255,255,255,0.65);
   }
 
-  .bar-header {
+  .thermo-row {
     display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  /* Scale on the left */
+  .thermo-scale {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 9px;
+    align-items: flex-end;
+    padding-right: 4px;
+    padding-bottom: 3px;
+    flex-shrink: 0;
+  }
+  .scale-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-mid);
+    line-height: 1;
   }
 
-  .bar-label {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-dark);
+  .thermo-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
+    flex: 1;
+    min-width: 50px;
+    max-width: 88px;
   }
 
-  .bar-emoji { font-size: 1.1rem; }
-
-  .bar-pct {
+  /* percentage label on top */
+  .thermo-pct {
     font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--red-heart);
+    min-height: 1.4em;
+    text-align: center;
   }
 
-  .bar-track {
-    height: 12px;
-    border-radius: 50px;
-    background: var(--pink-mid);
+  /* the thermometer tube */
+  .thermo-tube {
+    width: 28px;
+    height: 200px;
+    background: rgba(255,179,198,0.3);
+    border-radius: 40px 40px 6px 6px;
+    border: 2px solid rgba(232,0,61,0.22);
+    position: relative;
     overflow: hidden;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.07), inset -3px 0 6px rgba(255,255,255,0.4);
   }
 
-  .bar-fill {
-    height: 100%;
-    border-radius: 50px;
-    width: 0%;
-    transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* tick marks */
+  .thermo-tube::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 19px,
+      rgba(232,0,61,0.15) 19px,
+      rgba(232,0,61,0.15) 20px
+    );
+    z-index: 2;
+    pointer-events: none;
   }
 
-  /* color scale by value */
-  .fill-low    { background: linear-gradient(90deg, #ffb3c6, #ff85a1); }
-  .fill-mid    { background: linear-gradient(90deg, #ff85a1, #ff4d6d); }
-  .fill-high   { background: linear-gradient(90deg, #ff4d6d, #e8003d); }
+  /* gloss stripe */
+  .thermo-tube::after {
+    content: '';
+    position: absolute;
+    top: 6px; bottom: 6px;
+    left: 5px;
+    width: 5px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 10px;
+    z-index: 3;
+    pointer-events: none;
+  }
 
-  /* ---- VERDICT ---- */
+  .thermo-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    border-radius: 0 0 6px 6px;
+    transition: height 1.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+    background: linear-gradient(to top, #c0002e 0%, var(--red-heart) 30%, var(--red-soft) 65%, #ff85a1 100%);
+    z-index: 1;
+  }
+
+  /* bulb at bottom */
+  .thermo-bulb {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ff85a1, var(--red-heart) 70%, #9b0025);
+    border: 2px solid rgba(180,0,40,0.35);
+    box-shadow: 0 4px 14px rgba(232,0,61,0.4), inset 0 -2px 4px rgba(0,0,0,0.15);
+    position: relative;
+    margin-top: -5px;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+  .thermo-bulb::after {
+    content: '';
+    position: absolute;
+    top: 7px; left: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+  }
+
+  /* category label & emoji */
+  .thermo-emoji { font-size: 1.2rem; }
+  .thermo-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-align: center;
+    line-height: 1.25;
+    hyphens: auto;
+    word-break: break-word;
+  }
+
+  /* VERDICT */
   .verdict {
+    width: 100%;
     text-align: center;
     background: linear-gradient(135deg, rgba(255,180,198,0.5), rgba(255,255,255,0.7));
     border-radius: 20px;
     padding: 18px 22px;
     border: 1.5px solid rgba(232,0,61,0.2);
   }
-
   .verdict-emoji { font-size: 2rem; }
   .verdict-text {
     margin-top: 6px;
     font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-dark);
     font-style: italic;
-    line-height: 1.4;
+    line-height: 1.45;
   }
 </style>
 </head>
 <body>
 
-<!-- Floating hearts background -->
 <div class="hearts-bg" id="heartsBg"></div>
 
 <div class="container">
@@ -315,47 +355,70 @@
   <div class="results" id="results">
     <p class="result-title" id="resultTitle"></p>
 
-    <div class="bar-item">
-      <div class="bar-header">
-        <span class="bar-label"><span class="bar-emoji">❤️</span> Amor</span>
-        <span class="bar-pct" id="pct-amor">—</span>
+    <div class="thermo-card">
+      <div class="thermo-row">
+
+        <!-- Scale -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding-bottom:44px;">
+          <div style="min-height:1.4em;"></div>
+          <div class="thermo-scale">
+            <span class="scale-label">100</span>
+            <span class="scale-label">75</span>
+            <span class="scale-label">50</span>
+            <span class="scale-label">25</span>
+            <span class="scale-label">0</span>
+          </div>
+        </div>
+
+        <!-- Amor -->
+        <div class="thermo-item">
+          <span class="thermo-pct" id="pct-amor">—</span>
+          <div class="thermo-tube"><div class="thermo-fill" id="fill-amor"></div></div>
+          <div class="thermo-bulb"></div>
+          <span class="thermo-emoji">❤️</span>
+          <span class="thermo-label">Amor</span>
+        </div>
+
+        <!-- Compatibilidad -->
+        <div class="thermo-item">
+          <span class="thermo-pct" id="pct-compat">—</span>
+          <div class="thermo-tube"><div class="thermo-fill" id="fill-compat"></div></div>
+          <div class="thermo-bulb"></div>
+          <span class="thermo-emoji">🔗</span>
+          <span class="thermo-label">Compatibilidad</span>
+        </div>
+
+        <!-- Afinidad -->
+        <div class="thermo-item">
+          <span class="thermo-pct" id="pct-afin">—</span>
+          <div class="thermo-tube"><div class="thermo-fill" id="fill-afin"></div></div>
+          <div class="thermo-bulb"></div>
+          <span class="thermo-emoji">✨</span>
+          <span class="thermo-label">Afinidad</span>
+        </div>
+
+        <!-- Amistad -->
+        <div class="thermo-item">
+          <span class="thermo-pct" id="pct-amist">—</span>
+          <div class="thermo-tube"><div class="thermo-fill" id="fill-amist"></div></div>
+          <div class="thermo-bulb"></div>
+          <span class="thermo-emoji">🤝</span>
+          <span class="thermo-label">Amistad</span>
+        </div>
+
+        <!-- Casamiento -->
+        <div class="thermo-item">
+          <span class="thermo-pct" id="pct-cas">—</span>
+          <div class="thermo-tube"><div class="thermo-fill" id="fill-cas"></div></div>
+          <div class="thermo-bulb"></div>
+          <span class="thermo-emoji">💍</span>
+          <span class="thermo-label">Casamiento</span>
+        </div>
+
       </div>
-      <div class="bar-track"><div class="bar-fill" id="bar-amor"></div></div>
     </div>
 
-    <div class="bar-item">
-      <div class="bar-header">
-        <span class="bar-label"><span class="bar-emoji">🔗</span> Compatibilidad</span>
-        <span class="bar-pct" id="pct-compat">—</span>
-      </div>
-      <div class="bar-track"><div class="bar-fill" id="bar-compat"></div></div>
-    </div>
-
-    <div class="bar-item">
-      <div class="bar-header">
-        <span class="bar-label"><span class="bar-emoji">✨</span> Afinidad</span>
-        <span class="bar-pct" id="pct-afin">—</span>
-      </div>
-      <div class="bar-track"><div class="bar-fill" id="bar-afin"></div></div>
-    </div>
-
-    <div class="bar-item">
-      <div class="bar-header">
-        <span class="bar-label"><span class="bar-emoji">🤝</span> Amistad</span>
-        <span class="bar-pct" id="pct-amist">—</span>
-      </div>
-      <div class="bar-track"><div class="bar-fill" id="bar-amist"></div></div>
-    </div>
-
-    <div class="bar-item">
-      <div class="bar-header">
-        <span class="bar-label"><span class="bar-emoji">💍</span> Casamiento</span>
-        <span class="bar-pct" id="pct-cas">—</span>
-      </div>
-      <div class="bar-track"><div class="bar-fill" id="bar-cas"></div></div>
-    </div>
-
-    <div class="verdict" id="verdict">
+    <div class="verdict">
       <div class="verdict-emoji" id="verdictEmoji"></div>
       <p class="verdict-text" id="verdictText"></p>
     </div>
@@ -364,7 +427,7 @@
 </div>
 
 <script>
-  /* ---- Generate floating hearts ---- */
+  // Floating hearts
   const bg = document.getElementById('heartsBg');
   const heartsArr = ['❤️','🩷','💕','💗','💓','💖','💝'];
   for (let i = 0; i < 28; i++) {
@@ -378,14 +441,6 @@
     bg.appendChild(h);
   }
 
-  /* ---- Color class helper ---- */
-  function colorClass(v) {
-    if (v < 40) return 'fill-low';
-    if (v < 70) return 'fill-mid';
-    return 'fill-high';
-  }
-
-  /* ---- Verdict helper ---- */
   function getVerdict(avg, n1, n2) {
     if (avg >= 85) return { e:'💞', t:`¡${n1} y ${n2} son una pareja perfecta! El universo los tiene destinados el uno para el otro.` };
     if (avg >= 70) return { e:'😍', t:`${n1} y ${n2} tienen una conexión muy especial. ¡Vale la pena apostar!` };
@@ -394,68 +449,46 @@
     return { e:'😅', t:`Quizás ${n1} y ${n2} son mejores como amigos… ¡aunque el amor sorprende!` };
   }
 
-  /* ---- Main calc ---- */
   function calcular() {
     const n1 = document.getElementById('name1').value.trim();
     const n2 = document.getElementById('name2').value.trim();
-    if (!n1 || !n2) {
-      alert('¡Ingresá los dos nombres! 💕');
-      return;
-    }
+    if (!n1 || !n2) { alert('¡Ingresá los dos nombres! 💕'); return; }
 
     const rand = () => Math.floor(Math.random() * 100) + 1;
-    const vals = {
-      amor:   rand(),
-      compat: rand(),
-      afin:   rand(),
-      amist:  rand(),
-      cas:    rand()
-    };
+    const vals = { amor: rand(), compat: rand(), afin: rand(), amist: rand(), cas: rand() };
+    const avg  = Math.round(Object.values(vals).reduce((a,b)=>a+b,0) / 5);
 
-    const avg = Math.round(Object.values(vals).reduce((a,b)=>a+b,0) / 5);
-
-    // Update title
     document.getElementById('resultTitle').textContent = `${n1} 💕 ${n2}`;
 
-    // Update bars
     const map = [
-      ['amor',   'pct-amor',   'bar-amor'],
-      ['compat', 'pct-compat', 'bar-compat'],
-      ['afin',   'pct-afin',   'bar-afin'],
-      ['amist',  'pct-amist',  'bar-amist'],
-      ['cas',    'pct-cas',    'bar-cas'],
+      ['amor',   'pct-amor',   'fill-amor'],
+      ['compat', 'pct-compat', 'fill-compat'],
+      ['afin',   'pct-afin',   'fill-afin'],
+      ['amist',  'pct-amist',  'fill-amist'],
+      ['cas',    'pct-cas',    'fill-cas'],
     ];
 
-    map.forEach(([key, pctId, barId]) => {
+    map.forEach(([key, pctId, fillId]) => {
       document.getElementById(pctId).textContent = vals[key] + '%';
-      const fill = document.getElementById(barId);
-      fill.style.width = '0%';
-      fill.className = 'bar-fill';
-      // trigger reflow then animate
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          fill.classList.add(colorClass(vals[key]));
-          fill.style.width = vals[key] + '%';
-        });
-      });
+      const fill = document.getElementById(fillId);
+      fill.style.height = '0%';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        fill.style.height = vals[key] + '%';
+      }));
     });
 
-    // Verdict
     const v = getVerdict(avg, n1, n2);
     document.getElementById('verdictEmoji').textContent = v.e;
     document.getElementById('verdictText').textContent  = v.t;
 
-    // Show results
     const r = document.getElementById('results');
     r.classList.remove('visible');
-    void r.offsetWidth; // reflow for re-animation
+    void r.offsetWidth;
     r.classList.add('visible');
     r.style.display = 'flex';
-
     r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  // Allow Enter key
   document.addEventListener('keydown', e => { if (e.key === 'Enter') calcular(); });
 </script>
 </body>
